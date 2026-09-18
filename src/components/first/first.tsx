@@ -14,6 +14,10 @@ const characters = [
 export default function First() {
 	return (
 		<div className="first">
+			<img className="first-top-nav" src={`/nav/${encodeURI("组 567.svg")}`} alt="" aria-hidden="true" />
+			<div className="first-logo" role="img" aria-label="木犀 Logo" />
+			<div className="first-brand-name">MUXI STUDIO</div>
+			<img className="first-container-icon" src={`/nav/${encodeURI("容器.svg")}`} alt="" aria-hidden="true" />
 			{characters.map(({ className, file, alt }) => (
 				<img
 					key={className}

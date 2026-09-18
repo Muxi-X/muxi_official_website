@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./studio-mark.scss";
 
 type StudioKey = "U" | "I" | "T" | "O";
@@ -27,7 +26,6 @@ const letters = [
 ];
 
 export default function StudioMark() {
-  const navigate = useNavigate();
   const [active, setActive] = useState<StudioKey[]>([]);
   const [bloom, setBloom] = useState(false);
   const [scale, setScale] = useState(1);
@@ -61,13 +59,6 @@ export default function StudioMark() {
     <div
       className="studio-stage"
       style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
-      role="link"
-      tabIndex={0}
-      aria-label="MUXI STUDIO，进入组别介绍"
-      onClick={() => navigate("/intro")}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") navigate("/intro");
-      }}
     >
       <svg className="studio-wordmark" viewBox="0 0 1442 906" aria-hidden="true">
         <g fill="#010101">
@@ -90,7 +81,7 @@ export default function StudioMark() {
         })}
       </div>
       <div className="studio-hits">
-        {order.map((key) => <button key={key} type="button" className={`studio-hit studio-hit-${key}`} aria-label={`进入组别介绍，${key}`} onPointerEnter={() => reveal(key)} onFocus={() => reveal(key)} onClick={() => navigate("/intro")} />)}
+        {order.map((key) => <button key={key} type="button" className={`studio-hit studio-hit-${key}`} aria-label={`激活 ${key} 色块`} onPointerEnter={() => reveal(key)} onFocus={() => reveal(key)} />)}
       </div>
     </div>
   );
