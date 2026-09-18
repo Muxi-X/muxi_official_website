@@ -8,17 +8,19 @@ body {
   overflow-y: auto;
   margin: 0;
   padding: 0;
-  background-color: $bg-color;
+  background-color: #ffffff;
   color: $txt-white;
   font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", "Hiragino Sans GB",
     "WenQuanYi Micro Hei", sans-serif;
 }
+
 @mixin anim($function, $staytime, $way, $time, $result) {
   animation: $function $staytime $way $time $result;
   -webkit-animation: $function $staytime $way $time $result;
   -o-animation: $function $staytime $way $time $result;
   -moz-animation: $function $staytime $way $time $result;
 }
+
 @mixin transfxy($x, $y) {
   -moz-transform: translate($x, $y);
   -webkit-transform: translate($x, $y);
@@ -26,6 +28,7 @@ body {
   -ms-transform: translate($x, $y);
   transform: translate($x, $y);
 }
+
 @mixin transfz($z) {
   -moz-transform: translateZ($z);
   -webkit-transform: translateZ($z);
@@ -33,6 +36,7 @@ body {
   -ms-transform: translateZ($z);
   transform: translateZ($z);
 }
+
 @mixin transingle($option) {
   -moz-transform: $option;
   -webkit-transform: $option;
@@ -53,9 +57,9 @@ body {
   bottom: 5px;
   right: 5px;
   font-size: 10px;
+
   a {
     color: rgb(170, 170, 170);
     text-decoration: none;
   }
 }
-
