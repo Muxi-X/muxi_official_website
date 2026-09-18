@@ -1,0 +1,40 @@
+import { Link } from "react-router-dom";
+import First from "../components/first/first";
+import "./home.scss";
+
+const sections = [
+  { id: "home", label: "首页" },
+  { id: "products", label: "产品", title: "产品展示", description: "了解木犀团队正在做的产品。", route: "/product" },
+  { id: "groups", label: "组别", title: "组别介绍", description: "认识团队里的不同组别。", route: "/intro" },
+  { id: "blogs", label: "博客", title: "优质博客", description: "阅读木犀团队的技术分享与思考。" },
+  { id: "join", label: "加入", title: "加入我们", description: "和我们一起做点有意思的事。", route: "/join" },
+];
+
+export default function Home() {
+  return (
+    <main className="home">
+      <nav className="home-pagination" aria-label="首页分页">
+        {sections.map((section) => (
+          <a key={section.id} href={`#${section.id}`} aria-label={`跳转到${section.label}`}>
+            <span />
+          </a>
+        ))}
+      </nav>
+
+      <section id="home" className="home-section home-hero">
+        <First />
+      </section>
+
+      {sections.slice(1).map((section) => (
+        <section id={section.id} className="home-section home-preview" key={section.id}>
+          <div className="home-preview-content">
+            <p className="home-section-label">{section.label}</p>
+            <h2>{section.title}</h2>
+            <p>{section.description}</p>
+            {section.route ? <Link to={section.route}>查看详情</Link> : <span className="home-preview-coming-soon">内容准备中</span>}
+          </div>
+        </section>
+      ))}
+    </main>
+  );
+}

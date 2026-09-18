@@ -12,9 +12,20 @@ const characters = [
 ];
 
 export default function First() {
+	const scrollToSection = (sectionId: string) => {
+		document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+	};
+
 	return (
 		<div className="first">
-			<img className="first-top-nav" src={`/nav/${encodeURI("组 567.svg")}`} alt="" aria-hidden="true" />
+			<div className="first-top-nav-wrap">
+				<nav className="first-top-nav" aria-label="首页导航">
+					<button type="button" onClick={() => scrollToSection("products")}>产品展示</button>
+					<button type="button" onClick={() => scrollToSection("groups")}>组别介绍</button>
+					<button type="button" onClick={() => scrollToSection("blogs")}>优质博客</button>
+					<button type="button" onClick={() => scrollToSection("join")}>加入我们</button>
+				</nav>
+			</div>
 			<div className="first-logo" role="img" aria-label="木犀 Logo" />
 			<div className="first-brand-name">MUXI STUDIO</div>
 			<img className="first-container-icon" src={`/nav/${encodeURI("容器.svg")}`} alt="" aria-hidden="true" />
